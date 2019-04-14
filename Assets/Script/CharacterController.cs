@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Character : MonoBehaviour
+public class CharacterController : MonoBehaviour
 {
     public float jumpPower = 1.0f;
     public float movePower = 6.0f;
@@ -18,6 +18,7 @@ public class Character : MonoBehaviour
     bool grounded;
     //무적확인
     bool invincivility;
+
 
     void Start()
     {
