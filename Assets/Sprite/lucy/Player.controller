@@ -21,7 +21,7 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
-  - m_Name: Lend
+  - m_Name: DoubleJump
     m_Type: 9
     m_DefaultFloat: 0
     m_DefaultInt: 0
@@ -49,7 +49,7 @@ AnimatorStateTransition:
   m_Name: 
   m_Conditions:
   - m_ConditionMode: 1
-    m_ConditionEvent: Lend
+    m_ConditionEvent: DoubleJump
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102899430311093410}
@@ -82,10 +82,10 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.017231539
-  m_TransitionOffset: 0.008691789
-  m_ExitTime: 0.8344201
-  m_HasExitTime: 1
+  m_TransitionDuration: 0.104708076
+  m_TransitionOffset: 0
+  m_ExitTime: 0.7257765
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -107,10 +107,10 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.122928426
-  m_TransitionOffset: 0.035491746
-  m_ExitTime: 0.53901845
-  m_HasExitTime: 1
+  m_TransitionDuration: 0.013042957
+  m_TransitionOffset: 0.00027206077
+  m_ExitTime: 0.9510889
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -132,9 +132,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.008191943
-  m_TransitionOffset: 0.008474654
-  m_ExitTime: 0.97120833
+  m_TransitionDuration: 0.04246691
+  m_TransitionOffset: 0
+  m_ExitTime: 0.7430466
   m_HasExitTime: 1
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -202,7 +202,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: lucyLend
+  m_Name: lucyDoubleJump
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
