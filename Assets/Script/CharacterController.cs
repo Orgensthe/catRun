@@ -17,7 +17,7 @@ public class CharacterController : MonoBehaviour
     int jumpCnt; 
     bool grounded;
     //무적확인
-    bool invincivility;
+    public bool invincivility;
 
 
     void Start()
@@ -33,15 +33,13 @@ public class CharacterController : MonoBehaviour
 
     }
 
-    //충돌체크
-    private void OnTriggerStay2D(Collider2D collision)
+
+    public void makeInvincivible()
     {
-        // 장애물과 충돌
-        if (!invincivility && collision.transform.tag == "Obstacle")
-        {
+
             movePower = minSpeed;
             StartCoroutine(Invincivility());
-        }
+ 
     }
 
     private void OnCollisionStay2D(Collision2D collision)

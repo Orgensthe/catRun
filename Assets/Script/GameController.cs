@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    // singleton variable
     private static GameController instance;
+
 
     int maxHeart = 3;
     int currentHeart = 3;
     int score = 0;
     GameObject[] heartList;
+    GameObject player ;
 
     // return singleton instance
     public static GameController GetInstance()
@@ -24,10 +25,13 @@ public class GameController : MonoBehaviour
         return instance;
     }
 
-    // Start is called before the first frame update
+
+
+
     void Start()
     {
         heartList = new GameObject[maxHeart];
+        player = GameObject.Find("Player");
         for(int i = 0; i < maxHeart; i++) {
             heartList[i] = GameObject.Find("heart" + i.ToString());
         }
@@ -35,9 +39,17 @@ public class GameController : MonoBehaviour
     }
 
     public void conllisonHandler(GameObject ob)
-    { 
-        if(ob.tag == "Obstacle") {
+    {
+        if (player.GetComponent<CharacterController>().invincivility) {
+            return; 
+        }
+
+
+        if (ob.tag == "Obstacle") {
+            
             collideWithObsatcle();
+            player.GetComponent<CharacterController>().makeInvincivible();
+
         }
     }
 
