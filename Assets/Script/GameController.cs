@@ -4,12 +4,25 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    // singleton variable
+    private static GameController instance;
 
     int maxHeart = 3;
     int currentHeart = 3;
     int score = 0;
     GameObject[] heartList;
 
+    // return singleton instance
+    public static GameController GetInstance()
+    {
+        if (!instance)
+        {
+            instance = (GameController)GameObject.FindObjectOfType(typeof(GameController));
+            if (!instance)
+                Debug.LogError("There needs to be one active MyClass script on a GameObject in your scene.");
+        }
+        return instance;
+    }
 
     // Start is called before the first frame update
     void Start()

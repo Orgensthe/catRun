@@ -128,7 +128,7 @@ GameObject:
   - component: {fileID: 104768393}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -290,8 +290,9 @@ GameObject:
   - component: {fileID: 163377219}
   - component: {fileID: 163377218}
   - component: {fileID: 163377217}
+  - component: {fileID: 163377220}
   m_Layer: 0
-  m_Name: shelterMapObstacle3 (1)
+  m_Name: shelterMapObstacle5
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -383,8 +384,20 @@ Transform:
   m_LocalScale: {x: 0.16, y: 0.16, z: 0.16}
   m_Children: []
   m_Father: {fileID: 1458971466}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &163377220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 163377216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b364c344dd1fa49e6ba673a392275dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &454560945
 GameObject:
   m_ObjectHideFlags: 0
@@ -574,6 +587,7 @@ GameObject:
   - component: {fileID: 563353261}
   - component: {fileID: 563353260}
   - component: {fileID: 563353262}
+  - component: {fileID: 563353263}
   m_Layer: 0
   m_Name: shelterMapObstacle1
   m_TagString: Obstacle
@@ -641,7 +655,7 @@ Transform:
   m_LocalScale: {x: 0.45884323, y: 0.45884323, z: 0.45884323}
   m_Children: []
   m_Father: {fileID: 1458971466}
-  m_RootOrder: 4
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &563353262
 BoxCollider2D:
@@ -669,6 +683,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.8, y: 9.6}
   m_EdgeRadius: 0
+--- !u!114 &563353263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563353259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b364c344dd1fa49e6ba673a392275dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &798367714
 GameObject:
   m_ObjectHideFlags: 0
@@ -680,6 +706,7 @@ GameObject:
   - component: {fileID: 798367717}
   - component: {fileID: 798367716}
   - component: {fileID: 798367715}
+  - component: {fileID: 798367718}
   m_Layer: 0
   m_Name: shelterMapObstacle3
   m_TagString: Obstacle
@@ -773,8 +800,20 @@ Transform:
   m_LocalScale: {x: 0.16, y: 0.16, z: 0.16}
   m_Children: []
   m_Father: {fileID: 1458971466}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &798367718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798367714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b364c344dd1fa49e6ba673a392275dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &860384921
 GameObject:
   m_ObjectHideFlags: 0
@@ -786,6 +825,7 @@ GameObject:
   - component: {fileID: 860384924}
   - component: {fileID: 860384923}
   - component: {fileID: 860384922}
+  - component: {fileID: 860384925}
   m_Layer: 0
   m_Name: shelterMapObstacle2
   m_TagString: Obstacle
@@ -879,8 +919,20 @@ Transform:
   m_LocalScale: {x: 0.16, y: 0.16, z: 0.16}
   m_Children: []
   m_Father: {fileID: 1458971466}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &860384925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860384921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b364c344dd1fa49e6ba673a392275dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1015098375
 GameObject:
   m_ObjectHideFlags: 0
@@ -1165,11 +1217,11 @@ Transform:
   m_LocalPosition: {x: 14.429526, y: 4.4011316, z: -0.1827939}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 563353261}
   - {fileID: 860384924}
   - {fileID: 798367717}
-  - {fileID: 163377219}
   - {fileID: 2110192566}
-  - {fileID: 563353261}
+  - {fileID: 163377219}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1508,6 +1560,7 @@ GameObject:
   - component: {fileID: 2110192566}
   - component: {fileID: 2110192565}
   - component: {fileID: 2110192564}
+  - component: {fileID: 2110192567}
   m_Layer: 0
   m_Name: shelterMapObstacle4
   m_TagString: Obstacle
@@ -1603,3 +1656,15 @@ Transform:
   m_Father: {fileID: 1458971466}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2110192567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110192563}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b364c344dd1fa49e6ba673a392275dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
