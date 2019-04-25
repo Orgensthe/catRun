@@ -30,6 +30,7 @@ public class CharacterController : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         groundCheck = transform.Find("groundCheck");
+
     }
 
     //충돌체크
