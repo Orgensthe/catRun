@@ -44,13 +44,13 @@ public class CharacterController : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         // 지면과 충돌
-        if (collision.transform.tag == "Ground")
+        if (!grounded && collision.transform.tag == "Ground")
         {
             animator.SetTrigger("Run");
-            Debug.Log("I`m Running");
+            Debug.Log("lend");
             grounded = true;
             jumpCnt = 0;
         }
@@ -87,17 +87,16 @@ public class CharacterController : MonoBehaviour
                     animator.SetTrigger("Jump");
                     rigid.velocity = Vector2.up * jumpPower;
                     jumpCnt++;
-                    grounded = !grounded;
-                    Debug.Log(grounded);
+                    grounded = false;
+                    Debug.Log("jump");
                 }
                 break;
             case 1:
-                Debug.Log("asdfasdf");
                 if (!grounded)
                 {
                     Debug.Log("doublejump");
-                    animator.SetTrigger("Jump");
-                    rigid.velocity = new Vector2(rigid.velocity.x, 20.0f);
+                    animator.SetTrigger("DoubleJump");
+                    rigid.velocity = Vector2.up * jumpPower;
                     jumpCnt++;
                 }
                 break;
