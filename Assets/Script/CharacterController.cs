@@ -50,6 +50,7 @@ public class CharacterController : MonoBehaviour
         if (collision.transform.tag == "Ground")
         {
             animator.SetTrigger("Run");
+            Debug.Log("I`m Running");
             grounded = true;
             jumpCnt = 0;
         }
@@ -86,11 +87,15 @@ public class CharacterController : MonoBehaviour
                     animator.SetTrigger("Jump");
                     rigid.velocity = Vector2.up * jumpPower;
                     jumpCnt++;
+                    grounded = !grounded;
+                    Debug.Log(grounded);
                 }
                 break;
             case 1:
+                Debug.Log("asdfasdf");
                 if (!grounded)
                 {
+                    Debug.Log("doublejump");
                     animator.SetTrigger("Jump");
                     rigid.velocity = new Vector2(rigid.velocity.x, 20.0f);
                     jumpCnt++;
