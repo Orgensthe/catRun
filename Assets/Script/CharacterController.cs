@@ -10,12 +10,11 @@ public class CharacterController : MonoBehaviour
     public float minSpeed = 6.0f;
     Animator animator;
     Rigidbody2D rigid;
-    Transform groundCheck;
 
     float timeSpan; // 시작화면 카메라워킹용 타이머
     //2단점프
     int jumpCnt; 
-    bool grounded;
+    bool grounded, Lucy;
     //무적확인
     bool invincivility;
 
@@ -29,7 +28,7 @@ public class CharacterController : MonoBehaviour
         invincivility = false;
         rigid = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        groundCheck = transform.Find("groundCheck");
+        Lucy = true;
 
     }
 
@@ -59,9 +58,12 @@ public class CharacterController : MonoBehaviour
     {
         //spacebar 눌리면 점프
         if(Input.GetButtonDown("Jump"))
-        {
             ActionJump();
-        }
+
+        //T key 입력시 tag 시스템
+        if (Input.GetKeyDown(KeyCode.T))
+            tagging();
+
         //카메라 워킹
         timeSpan += Time.deltaTime;
         if (timeSpan > 0.5f)
@@ -100,6 +102,20 @@ public class CharacterController : MonoBehaviour
                     jumpCnt++;
                 }
                 break;
+        }
+    }
+
+    void tagging()
+    {
+        if (grounded)
+        {
+            StartCoroutine(Invincivility());
+            if (Lucy)
+                animator.SetTrigger("B-312");
+            else
+                animator.SetTrigger("Lucy");
+
+            Lucy = !Lucy;
         }
     }
 
