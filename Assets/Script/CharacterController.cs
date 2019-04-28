@@ -17,6 +17,8 @@ public class CharacterController : MonoBehaviour
     bool grounded, Lucy;
     //무적확인
     bool invincivility;
+    //태그중인지 확인
+    bool tag;
 
 
     void Start()
@@ -29,7 +31,7 @@ public class CharacterController : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         Lucy = true;
-
+        tag = false;
     }
 
     //충돌체크
@@ -49,7 +51,8 @@ public class CharacterController : MonoBehaviour
         if (!grounded && collision.transform.tag == "Ground")
         {
             animator.SetTrigger("Run");
-            Debug.Log("lend");
+            animator.ResetTrigger("Jump"); //중복입력 방지
+            animator.ResetTrigger("DoubleJump"); //중복입력 방지
             grounded = true;
             jumpCnt = 0;
         }
@@ -57,15 +60,21 @@ public class CharacterController : MonoBehaviour
     void Update()
     {
         //spacebar 눌리면 점프
-        if(Input.GetButtonDown("Jump"))
+        if(Input.GetButtonDown("Jump") && !tag)
             ActionJump();
 
         //T key 입력시 tag 시스템
         if (Input.GetKeyDown(KeyCode.T))
             tagging();
 
-        //카메라 워킹
-        timeSpan += Time.deltaTime;
+        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("BeLucy") || this.animator.GetCurrentAnimatorStateInfo(0).IsName("BeB-312"))
+        {
+            animator.SetTrigger("Run");
+            animator.ResetTrigger("Tag"); //중복 입력 방지
+            tag = false;
+        }
+            //카메라 워킹
+            timeSpan += Time.deltaTime;
         if (timeSpan > 0.5f)
          Camera.main.transform.position = new Vector3(transform.position.x + 5.0f, Camera.main.transform.position.y, Camera.main.transform.position.z);
     }
@@ -90,13 +99,11 @@ public class CharacterController : MonoBehaviour
                     rigid.velocity = Vector2.up * jumpPower;
                     jumpCnt++;
                     grounded = false;
-                    Debug.Log("jump");
                 }
                 break;
             case 1:
                 if (!grounded)
                 {
-                    Debug.Log("doublejump");
                     animator.SetTrigger("DoubleJump");
                     rigid.velocity = Vector2.up * jumpPower;
                     jumpCnt++;
@@ -109,11 +116,12 @@ public class CharacterController : MonoBehaviour
     {
         if (grounded)
         {
-            StartCoroutine(Invincivility());
+            tag = !tag;
+            //StartCoroutine(Invincivility());  //무적 빼고 싶을 경우 주석처리할 문장
             if (Lucy)
-                animator.SetTrigger("B-312");
+                animator.SetTrigger("Tag");
             else
-                animator.SetTrigger("Lucy");
+                animator.SetTrigger("Tag");
 
             Lucy = !Lucy;
         }
