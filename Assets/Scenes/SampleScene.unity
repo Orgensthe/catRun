@@ -123,6 +123,7 @@ GameObject:
   - component: {fileID: 95450696}
   - component: {fileID: 95450695}
   - component: {fileID: 95450698}
+  - component: {fileID: 95450699}
   - component: {fileID: 95450697}
   m_Layer: 0
   m_Name: scoreItem
@@ -205,6 +206,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af4ea56d46be54458a7bbbe9a8b48d7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: 100
 --- !u!58 &95450698
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -221,6 +231,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2.5599997
+--- !u!114 &95450699
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95450694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4ca2b13352784e01a33eeec3d988f20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &104768392
 GameObject:
   m_ObjectHideFlags: 0
@@ -508,6 +530,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b364c344dd1fa49e6ba673a392275dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFirstDetection: 0
 --- !u!1 &454560945
 GameObject:
   m_ObjectHideFlags: 0
@@ -805,6 +836,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b364c344dd1fa49e6ba673a392275dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFirstDetection: 0
 --- !u!1 &798367714
 GameObject:
   m_ObjectHideFlags: 0
@@ -816,6 +856,7 @@ GameObject:
   - component: {fileID: 798367717}
   - component: {fileID: 798367716}
   - component: {fileID: 798367715}
+  - component: {fileID: 798367719}
   - component: {fileID: 798367718}
   m_Layer: 0
   m_Name: shelterMapObstacle3
@@ -924,6 +965,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b364c344dd1fa49e6ba673a392275dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFirstDetection: 0
+--- !u!114 &798367719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798367714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4ca2b13352784e01a33eeec3d988f20, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &860384921
 GameObject:
   m_ObjectHideFlags: 0
@@ -935,6 +997,7 @@ GameObject:
   - component: {fileID: 860384924}
   - component: {fileID: 860384923}
   - component: {fileID: 860384922}
+  - component: {fileID: 860384926}
   - component: {fileID: 860384925}
   m_Layer: 0
   m_Name: shelterMapObstacle2
@@ -1041,6 +1104,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b364c344dd1fa49e6ba673a392275dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFirstDetection: 0
+--- !u!114 &860384926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 860384921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4ca2b13352784e01a33eeec3d988f20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1015098375
@@ -1981,3 +2065,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b364c344dd1fa49e6ba673a392275dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isFirstDetection: 0

@@ -40,13 +40,14 @@ public class GameController : MonoBehaviour
 
     public void conllisonHandler(GameObject ob)
     {
-        if (player.GetComponent<CharacterController>().invincivility) {
-            return; 
-        }
-
+      
 
         if (ob.tag == "Obstacle") {
-            
+
+            if (player.GetComponent<CharacterController>().invincivility)
+            {
+                return;
+            }
             collideWithObsatcle();
             player.GetComponent<CharacterController>().makeInvincivible();
 
@@ -55,6 +56,7 @@ public class GameController : MonoBehaviour
         if (ob.tag == "scoreItem")
         {
             collideWithScoreItem(ob);
+            Destroy(ob);
         }
     }
 
@@ -71,10 +73,12 @@ public class GameController : MonoBehaviour
 
     }
 
+
+
+
     public void collideWithScoreItem(GameObject ob) //아이템 충돌 처리 함수
     {
 
-        score += ob.GetComponent<ItemCollisionDetector>().getScore();
     }
 
 
