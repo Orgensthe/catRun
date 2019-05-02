@@ -252,7 +252,7 @@ Animator:
   m_GameObject: {fileID: 104768392}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: bb40cf90198993040baf1a7d05b2dcbe, type: 2}
+  m_Controller: {fileID: 9100000, guid: 3262c29ecf2b445408aa869ce5446d03, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -276,7 +276,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -384,7 +384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c141d87d3295f5941bf2297659c9d58e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpPower: 8
+  jumpPower: 13
   movePower: 6
   maxSpeed: 17
   minSpeed: 6
