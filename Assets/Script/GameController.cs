@@ -40,7 +40,6 @@ public class GameController : MonoBehaviour
 
     public void conllisonHandler(GameObject ob)
     {
-      
 
         if (ob.tag == "Obstacle") {
 
