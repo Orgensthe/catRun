@@ -51,9 +51,14 @@ public class GameController : MonoBehaviour
             player.GetComponent<CharacterController>().makeInvincivible();
 
         }
+
+        if (ob.tag == "scoreItem")
+        {
+            collideWithScoreItem(ob);
+        }
     }
 
-    public void collideWithObsatcle() {
+    public void collideWithObsatcle() { //장애물 충돌 처리 함수
         currentHeart -= 1;
         if (currentHeart == 0){
             heartList[currentHeart].GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 0);
@@ -64,6 +69,12 @@ public class GameController : MonoBehaviour
             heartList[currentHeart].GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 0);
         }
 
+    }
+
+    public void collideWithScoreItem(GameObject ob) //아이템 충돌 처리 함수
+    {
+
+        score += ob.GetComponent<ItemCollisionDetector>().getScore();
     }
 
 
