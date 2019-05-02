@@ -14,11 +14,11 @@ public class CharacterController : MonoBehaviour
     float timeSpan; // 시작화면 카메라워킹용 타이머
     //2단점프
     int jumpCnt; 
-    bool grounded, Lucy;
+    bool grounded, Lucy, MooM;
     //무적확인
     bool invincivility;
     //태그중인지 확인
-    bool tag;
+    bool tag, mtag;
 
 
     void Start()
@@ -31,6 +31,7 @@ public class CharacterController : MonoBehaviour
         rigid = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         Lucy = true;
+        MooM = false;
         tag = false;
     }
 
@@ -51,8 +52,6 @@ public class CharacterController : MonoBehaviour
         if (!grounded && collision.transform.tag == "Ground")
         {
             animator.SetTrigger("Run");
-            animator.ResetTrigger("Jump"); //중복입력 방지
-            animator.ResetTrigger("DoubleJump"); //중복입력 방지
             grounded = true;
             jumpCnt = 0;
         }
@@ -60,21 +59,41 @@ public class CharacterController : MonoBehaviour
     void Update()
     {
         //spacebar 눌리면 점프
-        if(Input.GetButtonDown("Jump") && !tag)
-            ActionJump();
+        if (Input.GetButtonDown("Jump") && !tag)
+        {
+            Debug.Log(tag);
+               ActionJump();
+        }
 
         //T key 입력시 tag 시스템
         if (Input.GetKeyDown(KeyCode.T))
             tagging();
+        if (Input.GetKeyDown(KeyCode.M))
+            Mtagging();
 
-        if (this.animator.GetCurrentAnimatorStateInfo(0).IsName("BeLucy") || this.animator.GetCurrentAnimatorStateInfo(0).IsName("BeB-312"))
+        //변신 종료
+        
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("BeLucy") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.95)
         {
             animator.SetTrigger("Run");
-            animator.ResetTrigger("Tag"); //중복 입력 방지
             tag = false;
+            Debug.Log("LTagEnd" + tag);
         }
-            //카메라 워킹
-            timeSpan += Time.deltaTime;
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("BeB-312") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.95)
+        {
+            animator.SetTrigger("Run");
+            tag = false;
+            Debug.Log("312TagEnd" + tag);
+        }
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Bemoomeung") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.95)
+        {
+            animator.SetTrigger("Run");
+            tag = false;
+            Debug.Log("MTagEnd" + tag);
+        }
+
+        //카메라 워킹
+        timeSpan += Time.deltaTime;
         if (timeSpan > 0.5f)
          Camera.main.transform.position = new Vector3(transform.position.x + 5.0f, Camera.main.transform.position.y, Camera.main.transform.position.z);
     }
@@ -112,18 +131,32 @@ public class CharacterController : MonoBehaviour
         }
     }
 
+    void Mtagging()
+    {
+        if (grounded)
+        {
+            mtag = true;
+            //StartCoroutine(Invincivility());  //무적 빼고 싶을 경우 주석처리할 문장
+            if (MooM)
+                animator.SetTrigger("M");
+            else
+                animator.SetTrigger("M");
+            MooM = !MooM;
+        }
+    }
+
     void tagging()
     {
         if (grounded)
         {
-            tag = !tag;
             //StartCoroutine(Invincivility());  //무적 빼고 싶을 경우 주석처리할 문장
             if (Lucy)
                 animator.SetTrigger("Tag");
             else
                 animator.SetTrigger("Tag");
-
             Lucy = !Lucy;
+            tag = true;
+            Debug.Log("Tag" + tag);
         }
     }
 
