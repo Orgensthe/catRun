@@ -10,7 +10,7 @@ public class GameController : MonoBehaviour
     int maxHeart = 3;
     int currentHeart = 3;
     private int score = 0;
-    GameObject[] heartList;
+    public GameObject[] heartList;
     GameObject player ;
 
     // return singleton instance
@@ -29,9 +29,21 @@ public class GameController : MonoBehaviour
         return score;
     }
 
-    public void subScore(int newScore) { //현재의 점수에 파라미터로 받은 점수를 더해주는 함수
+    public void sumScore(int newScore) { //현재의 점수에 파라미터로 받은 점수를 더해주는 함수
         score = score+newScore;
     }
+
+    public int getCurrentHeart() {
+        return currentHeart;
+    }
+
+    public void setCurrentHeart(int newCurrentHeart) {
+        currentHeart = newCurrentHeart;
+    }
+
+
+
+
 
 
     void Start()
@@ -47,22 +59,14 @@ public class GameController : MonoBehaviour
     public void conllisonHandler(GameObject ob)
     {
 
-        if (ob.tag == "Obstacle") {
-
-            if (player.GetComponent<CharacterController>().invincivility)
-            {
-                return;
-            }
-            collideWithObsatcle();
-            player.GetComponent<CharacterController>().makeInvincivible();
-
-        }
-
-        if (ob.tag == "scoreItem")
-        {
-            ob.GetComponent<ICollisionAction>().CollisionAction(this.gameObject);
-        }
+        ob.GetComponent<ICollisionAction>().CollisionAction(player, this.gameObject);
     }
+
+
+
+
+
+
 
     public void collideWithObsatcle() { //장애물 충돌 처리 함수
         currentHeart -= 1;

@@ -4,5 +4,5 @@ using UnityEngine;
 
 public interface ICollisionAction
 {
-    void CollisionAction(GameObject ob);
+    void CollisionAction(GameObject player,GameObject camera);
 }
