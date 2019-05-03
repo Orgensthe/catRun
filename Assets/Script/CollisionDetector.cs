@@ -10,7 +10,6 @@ public class CollisionDetector : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
 
-        Debug.Log(isFirstDetection);
         // 캐릭터와의 충돌
         if (!isFirstDetection && collision.transform.tag == "Player")
         {
