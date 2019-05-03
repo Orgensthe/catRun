@@ -9,12 +9,12 @@ public class GameController : MonoBehaviour
 
     int maxHeart = 3;
     int currentHeart = 3;
-    int score = 0;
+    private int score = 0;
     GameObject[] heartList;
     GameObject player ;
 
     // return singleton instance
-    public static GameController GetInstance()
+    public static GameController GetInstance() //For singleton pattern method
     {
         if (!instance)
         {
@@ -25,7 +25,13 @@ public class GameController : MonoBehaviour
         return instance;
     }
 
+    public int getScore() { //현재의 점수를 리턴해주는 함수
+        return score;
+    }
 
+    public void subScore(int newScore) { //현재의 점수에 파라미터로 받은 점수를 더해주는 함수
+        score = score+newScore;
+    }
 
 
     void Start()
@@ -54,8 +60,7 @@ public class GameController : MonoBehaviour
 
         if (ob.tag == "scoreItem")
         {
-            collideWithScoreItem(ob);
-            Destroy(ob);
+            ob.GetComponent<ICollisionAction>().CollisionAction(this.gameObject);
         }
     }
 
@@ -70,22 +75,6 @@ public class GameController : MonoBehaviour
             heartList[currentHeart].GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 0);
         }
 
-    }
-
-
-
-
-    public void collideWithScoreItem(GameObject ob) //아이템 충돌 처리 함수
-    {
-
-    }
-
-
-
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 
 

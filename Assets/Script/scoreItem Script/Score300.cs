@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Score300 : MonoBehaviour , ScoreItemAction
+public class Score300 : MonoBehaviour , ICollisionAction
 {
-    private int score = 300;
+    private int scroe = 1000;
 
-    public int getScore() {
-        return score;
+    public void CollisionAction(GameObject ob)
+    {
+        ob.GetComponent<GameController>().subScore(scroe);
+        Destroy(this.gameObject);
     }
 
 }
