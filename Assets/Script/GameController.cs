@@ -45,7 +45,6 @@ public class GameController : MonoBehaviour
 
 
 
-
     void Start()
     {
         heartList = new GameObject[maxHeart];
@@ -65,21 +64,6 @@ public class GameController : MonoBehaviour
 
 
 
-
-
-
-    public void collideWithObsatcle() { //장애물 충돌 처리 함수
-        currentHeart -= 1;
-        if (currentHeart == 0){
-            heartList[currentHeart].GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 0);
-            Time.timeScale = 0;
-
-        }
-        else {
-            heartList[currentHeart].GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 0);
-        }
-
-    }
 
 
 }
