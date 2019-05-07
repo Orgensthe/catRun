@@ -23,7 +23,6 @@ public class CameraController : MonoBehaviour
     // LateUpdate is called after Update each frame
     void LateUpdate()
     {
-        Debug.Log("asdfasdfas");
         tempPosition.x = player.GetComponent<Transform>().position.x;
         // Set the position of the camera's transform to be the same as the player's, but offset by the calculated offset distance.
         transform.position = tempPosition;

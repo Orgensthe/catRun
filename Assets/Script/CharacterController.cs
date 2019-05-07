@@ -13,7 +13,7 @@ public class CharacterController : MonoBehaviour
 
     float timeSpan; // 시작화면 카메라워킹용 타이머
     //2단점프
-    int jumpCnt; 
+    public int jumpCnt; 
     bool grounded, Lucy, MooM;
     //무적확인
 
@@ -64,12 +64,12 @@ public class CharacterController : MonoBehaviour
         //spacebar 눌리면 점프
         if ( Input.touchCount>0  && !tag)
         {
-            for (int i = 0; i < Input.touchCount;i++) {
+           
 
-                if (Input.GetTouch(i).position.x > (Screen.width/2))
+               
                     ActionJump();
+                    
 
-            }
 
         }
 
