@@ -12,7 +12,7 @@ public class CharacterController : MonoBehaviour
     Rigidbody2D rigid;
 
     float timeSpan; // 시작화면 카메라워킹용 타이머
-    //2단점프
+    //단점프
     public int jumpCnt; 
     bool grounded, Lucy, MooM;
     //무적확인
@@ -20,6 +20,11 @@ public class CharacterController : MonoBehaviour
     public bool invincivility;
     //태그중인지 확인
     bool tag, mtag;
+
+    //우다다인지 확인
+    public bool woodadaAble;
+    //메가냥인지 확인
+    public bool megaNyangAble;
 
 
     void Start()
@@ -34,6 +39,8 @@ public class CharacterController : MonoBehaviour
         Lucy = true;
         MooM = false;
         tag = false;
+        woodadaAble = false;
+        megaNyangAble = false;
     }
 
 
@@ -129,7 +136,7 @@ public class CharacterController : MonoBehaviour
                 }
                 break;
             case 1:
-                if (!grounded)
+                if (!grounded && !megaNyangAble)
                 {
                     animator.SetTrigger("DoubleJump");
                     rigid.velocity = Vector2.up * jumpPower;
