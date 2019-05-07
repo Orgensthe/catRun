@@ -18,14 +18,12 @@ public class PointTextor : MonoBehaviour
         player = GameObject.Find("Player");
        
         pointTextUI = GameObject.Find("Text");
-        pointTextUI.GetComponent<Text>().text = "Hahaha";
-        Debug.Log("Text test");
-
+     
 
     }
 
     private void LateUpdate()
     {
-        pointTextUI.GetComponent<Text>().text = player.GetComponent<CharacterController>().jumpCnt.ToString() + " Hum......";
+        pointTextUI.GetComponent<Text>().text = GameController.GetInstance().getScore().ToString();
     }
 }

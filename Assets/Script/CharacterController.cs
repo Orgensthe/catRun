@@ -62,14 +62,18 @@ public class CharacterController : MonoBehaviour
         
 
         //spacebar 눌리면 점프
-        if ( Input.touchCount>0  && !tag)
+        if ( Input.touchCount != 0  && !tag)
         {
+            for(int i = 0; i < Input.touchCount; i++) {
+
+                if (Input.GetTouch(i).phase == TouchPhase.Ended &&Input.GetTouch(i).position.x > Screen.width / 2)
+                {
+                    ActionJump();  
+
+                }
+            }
            
-
-               
-                    ActionJump();
                     
-
 
         }
 
