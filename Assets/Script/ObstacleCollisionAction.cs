@@ -12,7 +12,7 @@ public class ObstacleCollisionAction : MonoBehaviour, ICollisionAction
         {
             return;
         }
-        else if (player.GetComponent<CharacterController>().woodadaAble)
+        else if (player.GetComponent<CharacterController>().woodadaAble || player.GetComponent<CharacterController>().megaNyangAble)
         {
             Destroy(this.gameObject);
             return;

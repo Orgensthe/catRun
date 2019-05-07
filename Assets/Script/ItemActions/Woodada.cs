@@ -6,9 +6,8 @@ public class Woodada : MonoBehaviour, ICollisionAction
 {
     private float timeCounter = 0.0f;
     private bool timeTrigger = false;
-    private bool invincivilityTrigger = true;
     private GameObject player;
-    private GameObject camera;
+    private GameObject cam;
 
     // Text object
     public GameObject text;
@@ -20,7 +19,7 @@ public class Woodada : MonoBehaviour, ICollisionAction
     public void CollisionAction(GameObject player, GameObject camera)
     {
         this.player = player;
-        this.camera = camera;
+        this.cam = camera;
         // 오브젝트를 안 보이게 하고 이벤트 처리
         gameObject.GetComponent<Renderer>().enabled = false;
         // 타임카운터 시작
