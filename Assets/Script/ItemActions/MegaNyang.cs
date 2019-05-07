@@ -27,6 +27,10 @@ public class MegaNyang : MonoBehaviour, ICollisionAction
         startEvent();
     }
 
+    void Start() {
+        text = GameObject.Find("ItemRunningTime");  
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -47,7 +51,7 @@ public class MegaNyang : MonoBehaviour, ICollisionAction
             }
         }
     }
-// -0.31 - 0.81
+
     void startEvent()
     {
         Debug.Log("MegaNyang : startEvent");

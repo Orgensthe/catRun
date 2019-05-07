@@ -28,6 +28,10 @@ public class Woodada : MonoBehaviour, ICollisionAction
         startEvent();
     }
 
+    void Start() {
+        text = GameObject.Find("ItemRunningTime");  
+    }
+
     // Update is called once per frame
     void Update()
     {
