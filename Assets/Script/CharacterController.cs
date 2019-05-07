@@ -57,11 +57,20 @@ public class CharacterController : MonoBehaviour
     }
     void Update()
     {
+    
+
+        
+
         //spacebar 눌리면 점프
-        if (Input.GetButtonDown("Jump") && !tag)
+        if ( Input.touchCount>0  && !tag)
         {
-            Debug.Log(tag);
-               ActionJump();
+            for (int i = 0; i < Input.touchCount;i++) {
+
+                if (Input.GetTouch(i).position.x > (Screen.width/2))
+                    ActionJump();
+
+            }
+
         }
 
         //T key 입력시 tag 시스템
@@ -91,10 +100,6 @@ public class CharacterController : MonoBehaviour
             Debug.Log("MTagEnd" + tag);
         }
 
-        //카메라 워킹
-        timeSpan += Time.deltaTime;
-        if (timeSpan > 0.5f)
-         Camera.main.transform.position = new Vector3(transform.position.x + 5.0f, Camera.main.transform.position.y, Camera.main.transform.position.z);
     }
 
     private void FixedUpdate()
