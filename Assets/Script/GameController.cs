@@ -57,7 +57,6 @@ public class GameController : MonoBehaviour
 
     public void conllisonHandler(GameObject ob)
     {
-
         ob.GetComponent<ICollisionAction>().CollisionAction(player, this.gameObject);
     }
 

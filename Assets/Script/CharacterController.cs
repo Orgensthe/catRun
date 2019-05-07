@@ -21,6 +21,9 @@ public class CharacterController : MonoBehaviour
     //태그중인지 확인
     bool tag, mtag;
 
+    //우다다인지 확인
+    public bool woodadaAble;
+
 
     void Start()
     {
@@ -34,6 +37,7 @@ public class CharacterController : MonoBehaviour
         Lucy = true;
         MooM = false;
         tag = false;
+        woodadaAble = false;
     }
 
 

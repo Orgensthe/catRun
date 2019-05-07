@@ -6,7 +6,6 @@ public class Score1000 : MonoBehaviour , ICollisionAction
     private int scroe = 1000;
 
     public void CollisionAction(GameObject player, GameObject camera) { 
-    
         camera.GetComponent<GameController>().sumScore(scroe);
         Destroy(this.gameObject);
     }

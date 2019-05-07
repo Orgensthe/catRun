@@ -12,6 +12,11 @@ public class ObstacleCollisionAction : MonoBehaviour, ICollisionAction
         {
             return;
         }
+        else if (player.GetComponent<CharacterController>().woodadaAble)
+        {
+            Destroy(this.gameObject);
+            return;
+        }
 
 
         currentHeart = GameController.GetInstance().getCurrentHeart();
