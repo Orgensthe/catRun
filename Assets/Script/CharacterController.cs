@@ -21,6 +21,9 @@ public class CharacterController : MonoBehaviour
     //태그중인지 확인
     private bool tagging;
 
+    //파쿠르 가능 여부 확인
+    private bool paku;
+
 
     void Start()
     {
@@ -35,6 +38,7 @@ public class CharacterController : MonoBehaviour
         moomeung = false;
         b312 = false;
         tagging = false;
+        paku = false;
     }
 
     //충돌체크
@@ -45,6 +49,12 @@ public class CharacterController : MonoBehaviour
         {
             movePower = minSpeed;
             StartCoroutine(Invincivility());
+        }
+
+        //파쿠르와 충돌
+        if(collision.transform.tag == "PakuruPosition")
+        {
+            paku = true;
         }
     }
 
@@ -63,7 +73,16 @@ public class CharacterController : MonoBehaviour
         //spacebar 눌리면 점프
         if (Input.GetButtonDown("Jump") && !tagging )
         {
-               ActionJump();
+            if(paku)
+            {
+                //요기 파쿠르
+                StartCoroutine(pakuru());
+            }
+            else
+            {
+                ActionJump();
+            }
+              
         }
 
         //T key 입력시 tag 시스템
@@ -186,5 +205,17 @@ public class CharacterController : MonoBehaviour
         GetComponent<SpriteRenderer>().color = new Color32(255, 255, 255, 255);
         invincivility = false;
     }
-
+    //파쿠르 실행
+    private IEnumerator pakuru()
+    {
+        paku = false;
+        for (int i = 0; i < 3; i++)
+        {
+            float temp = Random.RandomRange(0.0f, 0.5f);
+            GameObject.Find("PakuruGameUi").SetActive(true);
+            GameObject.Find("PakuruGameUi").GetComponent<Pakuru>().NoteMaker();
+            Debug.Log(temp);
+            yield return new WaitForSeconds(temp);
+        }
+    }
 }

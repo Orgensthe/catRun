@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Obstacle
+  - PakuruPosition
   layers:
   - Default
   - TransparentFX
@@ -51,4 +52,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 3207348309
+    locked: 0
+  - name: Ui
+    uniqueID: 727259677
     locked: 0
