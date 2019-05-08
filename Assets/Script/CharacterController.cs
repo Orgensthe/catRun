@@ -14,11 +14,12 @@ public class CharacterController : MonoBehaviour
     float timeSpan; // 시작화면 카메라워킹용 타이머
     //2단점프
     int jumpCnt; 
-    bool grounded, Lucy, MooM;
+    bool grounded, lucy, moomeung, b312;
     //무적확인
     bool invincivility;
+
     //태그중인지 확인
-    bool tag, mtag;
+    private bool tagging;
 
 
     void Start()
@@ -30,9 +31,10 @@ public class CharacterController : MonoBehaviour
         invincivility = false;
         rigid = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-        Lucy = true;
-        MooM = false;
-        tag = false;
+        lucy = false;
+        moomeung = false;
+        b312 = false;
+        tagging = false;
     }
 
     //충돌체크
@@ -59,36 +61,37 @@ public class CharacterController : MonoBehaviour
     void Update()
     {
         //spacebar 눌리면 점프
-        if (Input.GetButtonDown("Jump") && !tag)
+        if (Input.GetButtonDown("Jump") && !tagging )
         {
-            Debug.Log(tag);
                ActionJump();
         }
 
         //T key 입력시 tag 시스템
-        if (Input.GetKeyDown(KeyCode.T))
-            tagging();
-        if (Input.GetKeyDown(KeyCode.M))
-            Mtagging();
+        if (Input.GetKeyDown(KeyCode.L) && !lucy)
+            lTagging();
+        if (Input.GetKeyDown(KeyCode.M) && !moomeung)
+            mTagging();
+        if (Input.GetKeyDown(KeyCode.B) && !b312)
+            bTagging();
 
         //변신 종료
         
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("BeLucy") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.95)
         {
             animator.SetTrigger("Run");
-            tag = false;
+            tagging = false;
             Debug.Log("LTagEnd" + tag);
         }
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("BeB-312") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.95)
         {
             animator.SetTrigger("Run");
-            tag = false;
+            tagging = false;
             Debug.Log("312TagEnd" + tag);
         }
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Bemoomeung") && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.95)
         {
             animator.SetTrigger("Run");
-            tag = false;
+            tagging = false;
             Debug.Log("MTagEnd" + tag);
         }
 
@@ -131,33 +134,38 @@ public class CharacterController : MonoBehaviour
         }
     }
 
-    void Mtagging()
+    void mTagging()
     {
-        if (grounded)
-        {
-            mtag = true;
-            //StartCoroutine(Invincivility());  //무적 빼고 싶을 경우 주석처리할 문장
-            if (MooM)
-                animator.SetTrigger("M");
-            else
-                animator.SetTrigger("M");
-            MooM = !MooM;
-        }
+        //StartCoroutine(Invincivility());  //무적 빼고 싶을 경우 주석처리할 문장
+        
+        tagging = true;
+        animator.SetTrigger("Moomeung");
+        moomeung = true;
+        lucy = false;
+        b312 = false;
+        
     }
 
-    void tagging()
+    void bTagging()
     {
-        if (grounded)
-        {
-            //StartCoroutine(Invincivility());  //무적 빼고 싶을 경우 주석처리할 문장
-            if (Lucy)
-                animator.SetTrigger("Tag");
-            else
-                animator.SetTrigger("Tag");
-            Lucy = !Lucy;
-            tag = true;
-            Debug.Log("Tag" + tag);
-        }
+        //StartCoroutine(Invincivility());  //무적 빼고 싶을 경우 주석처리할 문장
+
+        tagging = true;
+        animator.SetTrigger("B-312");
+        moomeung = false;
+        lucy = false;
+        b312 = true;
+    }
+
+    void lTagging()
+    {
+        //StartCoroutine(Invincivility());  //무적 빼고 싶을 경우 주석처리할 문장
+
+        tagging = true;
+        animator.SetTrigger("Lucy");
+        moomeung = false;
+        lucy = true;
+        b312 = false;
     }
 
     private IEnumerator Invincivility()
